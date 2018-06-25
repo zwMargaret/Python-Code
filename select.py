@@ -130,35 +130,3 @@ def carSelect(filepath,filepath_output,car_column='CAR[-W:W]',t_column='CAR[-W:W
 
     return concatAllData(filepath_output)
 
-
-
-######################################
-def main():
-    filepath_1 = 'D:/data/output/AbnormalReturns/AR_YahooFinance/'
-    filepath_2 = 'D:/data/output/AbnormalReturns/AR_IEX/'
-
-    filepath_output_10car = 'D:/data/output/CARStocks/10car/'
-    filepath_output_20car = 'D:/data/output/CARStocks/20car/'
-
-    #--------------------------
-    
-    output_10car_yahoo = carSelect(filepath_1,filepath_output_10car,car_column='CAR[-W:0]',t_column='CAR[-W:0] t-Score')
-    output_10car_iex = carSelect(filepath_2,filepath_output_10car,car_column='CAR[-W:0]',t_column='CAR[-W:0] t-Score')
-    output_20car_yahoo = carSelect(filepath_1,filepath_output_20car)
-    output_20car_iex = carSelect(filepath_2,filepath_output_20car)
-
-    # These four csv can also be found at 'output/CARStocks/' repertory on Bitbucket
-    output_10car_yahoo.to_csv('D:/data/output/CARStocks/AllStocks_HighCAR_10Days_Yahoo.csv')
-    output_10car_iex.to_csv('D:/data/output/CARStocks/AllStocks_HighCAR_10Days_IEX.csv')
-    output_20car_yahoo.to_csv('D:/data/output/CARStocks/AllStocks_HighCAR_20Days_Yahoo.csv')
-    output_20car_iex.to_csv('D:/data/output/CARStocks/AllStocks_HighCAR_20Days_IEX.csv')
-
-
-
-
-if __name__ == '__main__':
-    main()
-    
-
-
-
