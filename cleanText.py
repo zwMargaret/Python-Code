@@ -146,30 +146,3 @@ def preprocessNewsViaPickle(pickle_raw_news_name,pickle_output_name,remove_numbe
 
     print('News preprocess done. Output pickle is '+pickle_output_name)
 
-####################################################
-
-def main():
-    
-    pickle_raw_news_name_1 = '/data/output_news/raw_news_20car.pickle'
-    pickle_output_name_1_1 = '/data/output_news/preprocess_news_noun_20car.pickle'
-    pickle_output_name_1_2 = '/data/output_news/preprocess_news_verb_20car.pickle'
-    
-    pickle_raw_news_name_2 = '/data/output_news/raw_news_10car.pickle'
-    pickle_output_name_2_1 = '/data/output_news/preprocess_news_noun_10car.pickle'
-    pickle_output_name_2_2 = '/data/output_news/preprocess_news_verb_10car.pickle'
-    
-    
-    preprocessNewsViaPickle(pickle_raw_ews_name_1,pickle_output_name_1_1)
-    preprocessNewsViaPickle(pickle_raw_news_name_1,pickle_output_name_1_2,remove_number=True,convert_to_noun=False,convert_to_verb=True)
-    
-    
-    preprocessNewsViaPickle(pickle_raw_news_name_2,pickle_output_name_2_1)
-    preprocessNewsViaPickle(pickle_raw_news_name_2,pickle_output_name_2_2,remove_number=True,convert_to_noun=False,convert_to_verb=True)
-
-
-
-if __name__ == '__main__':
-    main()
-
-
-
