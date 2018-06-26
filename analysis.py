@@ -179,140 +179,39 @@ def ldaOptimization(docLst,
 
     
 #####################################################################
-pickle_1 = '/data/output_news/preprocess_10car.pickle'
-pickle_2 = '/data/output_news/preprocess_20car.pickle'
 
-filepath_output_txt_1 = '/data/output_news/topics_10car/'
-filepath_output_txt_2 = '/data/output_news/topics_20car/'
-
-filename_output_csv_1 = '/data/output_news/optimization_10car.csv'
-filename_output_csv_2 = '/data/output_news/optimization_20car.csv'
-
-docLst_1= combineNewsViaPickle(pickle_1)
-docLst_2= combineNewsViaPickle(pickle_2)
-
-
-n_topics_list = list(range(30,85,5))
-
-ldaOptimization(docLst_1,
-                filepath_output_txt_1,
-                filename_output_csv_1,
-                n_topics_list,
-                fixed_top_words=100,
-                fixed_iteration =300,
-                fixed_features=2000)
-
-ldaOptimization(docLst_2,
-                filepath_output_txt_2,
-                filename_output_csv_2,
-                n_topics_list,
-                fixed_top_words=100,
-                fixed_iteration =300,
-                fixed_features=2000)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-''' 
-pickle_1 = 'D:/data/output_news/preprocess_news_noun_and_verb_10car.pickle'
-output_txt = 'D:/data/output_news/results_noun_and_verb_10car.txt'
-output_csv = 'D:/data/output_news/optimization_noun_and_verb_10car.csv'
-
-n_topics_list = list(range(30,75,5))
-n_top_words_list = list(range(30,105,10))
-
-docLst_1= combineNewsViaPickle(pickle_1)
-best_n_topics,best_n_top_words,n_iteration =  ldaOptimization(docLst_1,output_csv,n_topics_list,n_top_words_list)
-ldaAnalysis(docLst_1,top_words_output_file=output_txt)
-
-'''
-
-'''    
-pickle_1 = 'D:/data/output_news/preprocess_news_noun_10car.pickle'
-pickle_2 = 'D:/data/output_news/preprocess_news_verb_10car.pickle'
-pickle_3 = 'D:/data/output_news/preprocess_news_noun_20car.pickle'
-pickle_4 = 'D:/data/output_news/preprocess_news_verb_20car.pickle'
-
-pickle_5 = 'D:/data/output_news/preprocess_news_noun_and_verb_10car.pickle'
-pickle_6 = 'D:/data/output_news/preprocess_news_noun_and_verb_20car.pickle'
-
-print('Combining news')
-docLst = combineNewsViaPickle(pickle_5)
-print(len(docLst))
-print('Combining-----------------Done')
-print('------------------Doing 30-----------')
-#ldaAnalysis(docLst)
-print('Doing----optimization==============')
-#best_n_topic = ldaOptimization(docLst)
-print('===============================================')
-#ldaAnalysis(docLst,n_topics=best_n_topic)
-
-docLst2 = combineNewsViaPickle(pickle_6)
-
-print(len(docLst2))
-print('Combining-----------------Done')
-print('------------------Doing 30-----------')
-#ldaAnalysis(docLst2)
-print('Doing----optimization==============')
-#best_n_topic2 = ldaOptimization(docLst2)
-print('===============================================')
-#ldaAnalysis(docLst2,n_topics=best_n_topic2)
-'''
-
-'''
 def main():
-        
-    pickle_1 = 'D:/data/output_news/preprocess_news_noun_10car.pickle'
-    pickle_2 = 'D:/data/output_news/preprocess_news_verb_10car.pickle'
-    pickle_3 = 'D:/data/output_news/preprocess_news_noun_20car.pickle'
-    pickle_4 = 'D:/data/output_news/preprocess_news_verb_20car.pickle'
-    
-    docLst_1 = combineNewsViaPickle(pickle_1)
-    ldaAnalysis(docLst_1)
-    best_n_topic_1 = ldaOptimization(docLst_1)
-    ldaAnalysis(docLst_1,n_topics=best_n_topic_1)
-    
-    
-    docLst_2 = combineNewsViaPickle(pickle_2)
-    ldaAnalysis(docLst_2)
-    best_n_topic_2 = ldaOptimization(docLst_2)
-    ldaAnalysis(docLst_2,n_topics=best_n_topic_2)
-    
-    
-    docLst_3 = combineNewsViaPickle(pickle_3)
-    ldaAnalysis(docLst_3)
-    best_n_topic_3 = ldaOptimization(docLst_3)
-    ldaAnalysis(docLst_3,n_topics=best_n_topic_3)
-    
-    
-    docLst_4 = combineNewsViaPickle(pickle_4)
-    ldaAnalysis(docLst_4)
-    best_n_topic_4 = ldaOptimization(docLst_4)
-    ldaAnalysis(docLst_4,n_topics=best_n_topic_4)
-    
+    pickle_1 = '/data/output_news/preprocess_10car.pickle'
+    pickle_2 = '/data/output_news/preprocess_20car.pickle'
 
+    filepath_output_txt_1 = '/data/output_news/topics_10car/'
+    filepath_output_txt_2 = '/data/output_news/topics_20car/'
+
+    filename_output_csv_1 = '/data/output_news/optimization_10car.csv'
+    filename_output_csv_2 = '/data/output_news/optimization_20car.csv'
+
+    docLst_1= combineNewsViaPickle(pickle_1)
+    docLst_2= combineNewsViaPickle(pickle_2)
+
+
+    n_topics_list = list(range(30,85,5))
+
+    ldaOptimization(docLst_1,
+                    filepath_output_txt_1,
+                    filename_output_csv_1,
+                    n_topics_list,
+                    fixed_top_words=100,
+                    fixed_iteration =300,
+                    fixed_features=2000)
+
+    ldaOptimization(docLst_2,
+                    filepath_output_txt_2,
+                    filename_output_csv_2,
+                    n_topics_list,
+                    fixed_top_words=100,
+                    fixed_iteration =300,
+                    fixed_features=2000)
 
 if __name__ == '__main__':
     main()
-'''
 
-
-
-    
