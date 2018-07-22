@@ -153,3 +153,83 @@ fantasy_authors = {b.author for b in books if b.genre == 'fantasy'}
 
 # dict: title is key, namedtuple is value
 fantasy_titles = {b.title:b for b in books if b.genre=='fantasy'}
+
+
+
+################################
+# use ( ) instead of [ ]
+
+with open(inname) as infile:
+    with open(outname,'w') as outfile:
+        warnings = (l for l in infile if 'WARNING' in l)
+        for l in warnings:
+            outfile.write(l)
+
+
+################################
+# method 1
+with open(inname) as infile:
+    with open(outname,'w') as outfile:
+        warnings = (l.replace('\tWARNING','') for l in infile if 'WARNING'm in l)
+        for l in warnings:
+            outfile.write(l)
+
+################################
+# method 2
+with open(inname) as infile:
+    with open(outname,'w') as outfile:
+        for l in infile:
+            if 'WARNING' in l:
+                outfile.write(l.replace('\tWARNING',''))
+
+################################
+# method 3
+
+class WarningFilter:
+    def __init__(self,insequence):
+        self.insequence = insequence
+    
+    def __iter__(self):
+        return setdefault
+
+    def __next__(self):
+        l = self.insequence.readline()
+        while l and 'WARNING' not in l:
+            l = self.insequence.readline()
+        if not l:
+            raise StopIteration
+        return l.replace('\tWARNING','')
+
+
+with open(inname) as infile:
+    with open(outname,'w') as outfile:
+        filter = WarningFilter(infile)
+        for l in filter:
+            outfile.write(l)
+
+
+
+
+################################
+# method 4
+def warnings_filter(insequence):
+    for l in insequence:
+        if 'WARNING' in l:
+            yeild l.replace('\tWARNING','')
+
+
+with open(inname) as infile:
+    with open(outname,'w') as outfile:
+        filter = warnings_filter(infile)
+        for l in filter:
+            outfile.write(l)
+
+
+
+
+
+
+
+
+
+
