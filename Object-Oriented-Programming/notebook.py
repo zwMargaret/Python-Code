@@ -4,19 +4,41 @@ import sys
 
 last_id = 0
 
+'''
+Objects:
+1) Note(): most basic objects
+           a) __init__(memo,tags)
+           b) match(filter)
+2) Notebook(): Notebook.notes = [multiple Note()]
+               a) __init__()
+               b) new_note(memo,tags)
+               c) _find_note(note_id)
+               d) modify_memo(note_id,memo)
+               e) modify_tags(note_id,tags)
+               f) search(filter)
+3) Menu(): Menu.notebook = Notebook()
+           a) __init__()
+           b) display_menu()
+           c) run()
+           d) show_notes(notes) # "notes" here is a list of Note
+           e) search_notes(filter) -> return a list of Note that match(filter)
+                                   -> As menu.notebook = Notebook(), menu.notebook.search(filter) is used here.
+           f) add_note(memo,tags)  -> menu.notebook.new_note(memo,tags)
+           g) modify_note(note_id,memo,tags) -> menu.notebook.modify_memo(note_id,memo)
+                                             -> menu.notebook.modify_tags(note_id,tags)          
+'''
 
 class Note:
     def __init__(self,memo,tags=''):
         self.memo = memo
         self.tags = tags
-
         self.creation_date = datetime.date.today()
         
         global last_id
-
         last_id += 1
         self.id = last_id
     
+    # "match" func: if note.memo or note.tags include 'filter', return True
     def match(self,filter):
         return filter in self.memo or filter in self.tags
 
@@ -27,7 +49,10 @@ class Notebook:
 
     def new_note(self,memo,tags=''):
         self.notes.append(Note(memo,tags))
-        
+    
+
+    # _find_note: if there is note with note_id in self.notes, return note.
+    #             Otherwise, return None
     def _find_note(self,note_id):
         for note in self.notes:
             if str(note.note_id) == str(note_id):
@@ -111,8 +136,4 @@ class Menu:
 
 if __name__ == '__main__':
     Menu.run()
-
-
-
-
 
